@@ -1,0 +1,35 @@
+{% extends 'Home/base.html'  %}
+{% block ContactActive %} active {% endblock ContactActive %}
+{% block title %} Contact Us {% endblock title %}
+
+
+{% block body %} 
+
+<div class="container my-2">
+<h1 class="display-4">Contact Us</h1><br>
+<form class="mb-3" action="/Contact/" method="post">{% csrf_token %}
+ <div class="form-group">
+    <label for="Name">Name</label>
+    <input type="text" class="form-control"  name="Name" id="Name" required>
+  </div>
+   <div class="form-group">
+    <label for="Phone">Phone</label>
+    <input type="number" class="form-control"   name="Phone" id="Phone" required>
+    <small id="phoneHelp" class="form-text text-muted">Add the country code as well.</small>
+
+  </div>
+  <div class="form-group">
+    <label for="Email">Email address</label>
+    <input type="email" class="form-control" name="Email" id="Email" aria-describedby="emailHelp" required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+ 
+ <div class="form-group">
+    <label for="Content">Describe Your Issue ...</label>
+    <textarea class="form-control" name="Content" id="Content" cols="30" rows="10" required></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock body %}

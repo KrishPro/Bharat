@@ -1,0 +1,27 @@
+{% extends 'Home/base.html'  %}
+{% block ProfileActive %} active {% endblock ProfileActive %}
+{% block title %} Profile {% endblock title %}
+
+
+{% block body %}
+
+ <div class="card col-sm-6 mx-auto my-3 p-0 border-light">
+ <div class="card-header"><b>Your Profile</b></div>
+ <div class="card-body">
+ <p><b>Full Name : </b> {{user.first_name}} {{user.last_name}} </p>
+ <p><b>Username : </b> {{user.username}} </p>
+ <p><b>Email : </b> {{user.email}} </p>
+<div class="btn-group float-right">
+  <button type="button" class="btn btn-outline-primary">Change</button>
+  <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only"></span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="/Auth/ChangePassword/">Password</a>
+    <a class="dropdown-item" href="/Auth/ChangeInformation/">Other Information</a>
+  </div>
+</div> </div>
+ 
+ </div>
+
+{% endblock body %}

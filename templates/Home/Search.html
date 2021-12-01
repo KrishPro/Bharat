@@ -1,0 +1,31 @@
+{% extends 'Home/base.html'  %}
+{% block BlogActive %} active {% endblock BlogActive %}
+{% block title %} Search Result{{s}}  {% endblock title %}
+
+
+{% block body %}
+<div class="container mt-3">
+<div class="py-1  ">
+                <h2>{{Heading}}</h2>
+                <p class="lead">{{messsage}}</p>
+              </div>
+ <div class="row mb-2">
+                  {% for post in Posts %}
+                    <div class="col-md-6">
+                      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                          <strong class="d-inline-block mb-2 text-primary"> Post By {{post.Author}}</strong>
+                          <h3 class="mb-0">{{post.Title}}</h3>
+                          <div class="mb-1 text-muted">{{post.Time}}</div>
+                          <p class="card-text mb-auto">{{post.Content | truncatechars:200}}</p>
+                          <a href="/Blog/Posts/{{post.Sno}}" class="stretched-link">Continue reading</a>
+                        </div>
+                       
+                      </div>
+                    </div>
+                    {% endfor %}
+
+                    
+                  </div>
+</div>
+ {% endblock body %}
